@@ -93,9 +93,8 @@ conda activate NeuralGCM_LAM
 |---|---|
 | `conda-unpack` | Run once after the first activation to fix hard-coded paths. |
 | Cross-platform | Not supported. A Linux pack only works on Linux. |
-| Environment name | `NeuralGCM_LAM` avoids clashing with an existing `NeuralGCM` environment. |
 | tar warnings | A few file warnings are acceptable if key packages import correctly. |
-| conda not required on target | `source .../bin/activate` works; placing the environment under conda envs also allows `conda activate`. |
+
 
 ### Method 2: Create the environment manually
 
