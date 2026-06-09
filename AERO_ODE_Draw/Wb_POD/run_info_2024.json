@@ -1,0 +1,86 @@
+{
+  "year": 2024,
+  "start_date": "2024-01-01",
+  "end_date": "2024-12-31",
+  "events": [
+    "low",
+    "high"
+  ],
+  "event_axis": {
+    "0": "low<=P5",
+    "1": "high>=P95"
+  },
+  "metric_shape": "(2, steps, vars)",
+  "metrics": [
+    "pod",
+    "far",
+    "csi",
+    "ets",
+    "sedi"
+  ],
+  "models": {
+    "pangu": {
+      "init_dates_total": 366,
+      "forecast_missing_or_failed": 0,
+      "forecast_invalid_shape": 0,
+      "truth_missing": 147,
+      "valid_pairs": 26205,
+      "elapsed_sec": 6012,
+      "valid_metric_cells": 3456
+    },
+    "yinglong_nwp_bc": {
+      "init_dates_total": 366,
+      "forecast_missing_or_failed": 0,
+      "forecast_invalid_shape": 0,
+      "truth_missing": 74,
+      "valid_pairs": 17494,
+      "elapsed_sec": 6526,
+      "valid_metric_cells": 2304
+    },
+    "nwp": {
+      "init_dates_total": 366,
+      "forecast_missing_or_failed": 0,
+      "forecast_invalid_shape": 1,
+      "truth_missing": 74,
+      "valid_pairs": 17446,
+      "elapsed_sec": 6788,
+      "valid_metric_cells": 2304
+    },
+    "yinglong_pangu_bc": {
+      "init_dates_total": 366,
+      "forecast_missing_or_failed": 0,
+      "forecast_invalid_shape": 0,
+      "truth_missing": 74,
+      "valid_pairs": 17494,
+      "elapsed_sec": 6897,
+      "valid_metric_cells": 2304
+    },
+    "ifs": {
+      "init_dates_total": 335,
+      "forecast_missing_or_failed": 1,
+      "forecast_invalid_shape": 0,
+      "truth_missing": 147,
+      "valid_pairs": 23901,
+      "elapsed_sec": 5503,
+      "valid_metric_cells": 3456
+    },
+    "Aero_ODE": {
+      "init_dates_total": 366,
+      "forecast_missing_or_failed": 0,
+      "forecast_invalid_shape": 0,
+      "truth_missing": 147,
+      "valid_pairs": 26205,
+      "elapsed_sec": 12141,
+      "valid_metric_cells": 3456
+    },
+    "neuralgcm": {
+      "init_dates_total": 366,
+      "forecast_missing_or_failed": 0,
+      "forecast_invalid_shape": 0,
+      "truth_missing": 147,
+      "valid_pairs": 26205,
+      "elapsed_sec": 6947,
+      "valid_metric_cells": 2880
+    }
+  }
+}

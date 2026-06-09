@@ -1,0 +1,18 @@
+{
+  "model_name": "IFS_72h",
+  "output_stub": "ifs",
+  "steps": 72,
+  "num_vars": 24,
+  "start_date": "2024-02-01",
+  "end_date": "2024-12-31",
+  "stats": {
+    "init_dates_total": 335,
+    "forecast_missing_or_failed": 1,
+    "forecast_invalid_shape": 0,
+    "truth_missing": 6771,
+    "valid_pairs": 17277,
+    "rmse_steps_with_samples": 72,
+    "acc_cells_with_samples": 1728,
+    "elapsed_sec": 3562
+  }
+}

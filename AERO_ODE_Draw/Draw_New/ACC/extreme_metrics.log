@@ -1,0 +1,2 @@
+nohup: ignoring input
+python: can't open file '/nfs/gpu_homes/gpu09/home/zhangjing/Code/NeuralGCM_LAM_Paper_Data/Draw/ACC/calculate_extreme_metrics_all_models_wb.py': [Errno 2] No such file or directory

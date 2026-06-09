@@ -1,0 +1,18 @@
+{
+  "model_name": "NWP_48h",
+  "output_stub": "nwp",
+  "steps": 48,
+  "num_vars": 24,
+  "start_date": "2024-01-01",
+  "end_date": "2024-12-31",
+  "stats": {
+    "init_dates_total": 366,
+    "forecast_missing_or_failed": 0,
+    "forecast_invalid_shape": 1,
+    "truth_missing": 74,
+    "valid_pairs": 17446,
+    "rmse_steps_with_samples": 48,
+    "acc_cells_with_samples": 1152,
+    "elapsed_sec": 2589
+  }
+}
