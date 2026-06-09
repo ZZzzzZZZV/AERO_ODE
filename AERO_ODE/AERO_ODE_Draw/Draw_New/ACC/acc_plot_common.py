@@ -1,6 +1,3 @@
-"""
-Shared ACC curve plotting: upper-air + surface combined 6x4 subplots (single figure), same layout as RMSE.
-"""
 from __future__ import annotations
 
 import os

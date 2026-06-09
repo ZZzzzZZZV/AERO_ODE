@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
-"""
-Latest
-Batch-run Draw_New plotting scripts.
 
-Skip Visualization by default (needs NFS forecasts and --date).
-When Visualization is enabled, use VISUALIZATION_SUBDIR_DATES per subdir
-（AIR_rb→2/1, AIR_wb→6/1, Surface_rb→8/15, Surface_wb→4/1）。
-Edit config below or override via CLI; use --viz to include Visualization.
-
-Significance: dual-panel RMSE heatmaps (ED+WD) + optional single-region RMSE/ETS.
-"""
 from __future__ import annotations
 
 import argparse

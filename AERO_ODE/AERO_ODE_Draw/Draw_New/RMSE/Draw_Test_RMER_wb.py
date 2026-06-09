@@ -1,8 +1,3 @@
-"""
-West (Wb) RMSE curves: upper-air + surface combined in one 6x4 figure.
-
-Run: python Draw_Test_RMER_wb.py
-"""
 from pathlib import Path
 import sys
 

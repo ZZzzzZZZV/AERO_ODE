@@ -1,15 +1,3 @@
-"""
-Cross-platform path configuration for Draw_New (Windows / Ubuntu).
-
-- repo(): data inside this AERO_ODE_Draw repo (Rb_RMSE, Hrrr_rb, etc.)
-- draw_new(): resources under Draw_New (fonts, output figures, etc.)
-- sibling(): sibling project directories (optional external code)
-- nfs(): large forecast data; override mount via NEURALGCM_NFS_ROOT
-
-Lat/lon (relative paths in repo):
-  East (rb): Hrrr_rb/lats.npy, Hrrr_rb/lons.npy
-  West (wb): Hrrr_wb/hrrr_west_lat.npy, Hrrr_wb/hrrr_west_lon.npy
-"""
 from __future__ import annotations
 
 import os
