@@ -56,16 +56,26 @@ For example:
 mkdir -p /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM
 ```
 
-#### Step 3: Extract the archive
+#### Step 3: Download and reassemble the packed environment
+
+The packed environment (`NeuralGCM_LAM_Env.tar.gz`, ~2.98 GB) is published as a GitHub Release asset. Because a single release asset is limited to 2 GB, it is split into two parts. Download both parts from the [`env-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/env-v1) and reassemble them:
 
 ```bash
-cd ./Virtual_Environment_Configuration
+cat NeuralGCM_LAM_Env.tar.gz.part00 NeuralGCM_LAM_Env.tar.gz.part01 > NeuralGCM_LAM_Env.tar.gz
+# Optional integrity check (SHA-256):
+# 375604987cbb299130e5eefb317dd4985ca730155837b06be9faefb49ad51552
+sha256sum NeuralGCM_LAM_Env.tar.gz
+```
+
+#### Step 4: Extract the archive
+
+```bash
 tar -xzvf NeuralGCM_LAM_Env.tar.gz -C /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM
 ```
 
 Please replace `/home/zhangjing09/miniconda3/envs/` with your own conda environment path.
 
-#### Step 4: Activate and fix paths
+#### Step 5: Activate and fix paths
 
 Run `conda-unpack` once after the first activation to fix hard-coded paths in the packed environment.
 
@@ -74,7 +84,7 @@ source /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM/bin/activate
 conda-unpack
 ```
 
-#### Step 5: Verify the installation
+#### Step 6: Verify the installation
 
 ```bash
 python -c "import jax; print('jax:', jax.__version__)"      # jax: 0.4.29
