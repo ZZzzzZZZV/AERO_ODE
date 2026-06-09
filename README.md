@@ -24,11 +24,11 @@
 
 **MSLP forecast comparison (initialized at 00 UTC on 1 January 2024)**
 
-![MSLP forecast comparison](./assets/mslp_comparison_20240101.gif)
+https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7
 
 **T2m forecast comparison (initialized at 00 UTC on 1 May 2024)**
 
-![T2m forecast comparison](./assets/t2m_comparison_20240501.gif)
+https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272
 
 <sub>Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.</sub>
 
