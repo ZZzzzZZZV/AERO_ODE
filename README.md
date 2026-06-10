@@ -38,6 +38,21 @@ https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272
 
 Because `AERO-ODE` depends on both JAX and PyTorch, which have strict version compatibility requirements, we provide a packed backup of the authors' virtual environment. Follow the steps below to restore the runtime environment.
 
+#### Option A: Download from GitHub Release
+
+The packed environment (`NeuralGCM_LAM_Env.tar.gz`, ~2.98 GB) is published as a GitHub Release asset. Because a single release asset is limited to 2 GB, it is split into two parts. Download both parts from the [`env-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/env-v1) and reassemble them:
+
+```bash
+cat NeuralGCM_LAM_Env.tar.gz.part00 NeuralGCM_LAM_Env.tar.gz.part01 > NeuralGCM_LAM_Env.tar.gz
+# Optional integrity check (SHA-256):
+# 375604987cbb299130e5eefb317dd4985ca730155837b06be9faefb49ad51552
+sha256sum NeuralGCM_LAM_Env.tar.gz
+```
+
+#### Option B: Download from Zenodo
+
+The same packed environment is also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the archive from Zenodo and extract `NeuralGCM_LAM_Env.tar.gz` before continuing with the steps below. File access may require logging in to Zenodo if the record is restricted.
+
 #### Step 1: Find your conda envs directory
 
 ```bash
@@ -56,18 +71,9 @@ For example:
 mkdir -p /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM
 ```
 
-#### Step 3: Download and reassemble the packed environment
+#### Step 3: Extract the archive
 
-The packed environment (`NeuralGCM_LAM_Env.tar.gz`, ~2.98 GB) is published as a GitHub Release asset. Because a single release asset is limited to 2 GB, it is split into two parts. Download both parts from the [`env-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/env-v1) and reassemble them:
-
-```bash
-cat NeuralGCM_LAM_Env.tar.gz.part00 NeuralGCM_LAM_Env.tar.gz.part01 > NeuralGCM_LAM_Env.tar.gz
-# Optional integrity check (SHA-256):
-# 375604987cbb299130e5eefb317dd4985ca730155837b06be9faefb49ad51552
-sha256sum NeuralGCM_LAM_Env.tar.gz
-```
-
-#### Step 4: Extract the archive
+Download the packed environment using **Option A** or **Option B** above, then extract it:
 
 ```bash
 tar -xzvf NeuralGCM_LAM_Env.tar.gz -C /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM
@@ -75,7 +81,7 @@ tar -xzvf NeuralGCM_LAM_Env.tar.gz -C /home/zhangjing09/miniconda3/envs/NeuralGC
 
 Please replace `/home/zhangjing09/miniconda3/envs/` with your own conda environment path.
 
-#### Step 5: Activate and fix paths
+#### Step 4: Activate and fix paths
 
 Run `conda-unpack` once after the first activation to fix hard-coded paths in the packed environment.
 
@@ -84,7 +90,7 @@ source /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM/bin/activate
 conda-unpack
 ```
 
-#### Step 6: Verify the installation
+#### Step 5: Verify the installation
 
 ```bash
 python -c "import jax; print('jax:', jax.__version__)"      # jax: 0.4.29
@@ -119,7 +125,7 @@ conda env create -f environment.yml -n NeuralGCM_LAM
 This repository provides two types of datasets:
 
 - **Minimal runtime dataset**: bundled with the code in the corresponding directories; no extra download is required and it can be used to quickly verify the workflow.
-- **One-month full dataset**: download link TBD (XXXXXX); suitable for further experiment reproduction.
+- **One-month full dataset**: available from Zenodo — [AeroODE Case Data (August 2024, Eastern Domain)](https://doi.org/10.5281/zenodo.20602695). The release also includes pretrained model weights, paper figures, and the packed virtual environment backup. Suitable for full experiment reproduction and inference evaluation without rebuilding the preprocessing pipeline from scratch.
 
 To expand the dataset, raw data can be obtained from the following official sources:
 
