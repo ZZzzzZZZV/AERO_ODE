@@ -1,0 +1,2 @@
+AERO_ODE/AERO_AIR/checkpoints_film/model_ep5.pth filter=lfs diff=lfs merge=lfs -text
+AERO_ODE/AERO_Surface/checkpoints_film_v2/model_ep5.pth filter=lfs diff=lfs merge=lfs -text
