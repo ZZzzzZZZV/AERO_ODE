@@ -180,7 +180,7 @@ Commercial use of these AERO-ODE models is prohibited.
 
 ## Third-Party Components
 
-NeuralGCM source is included under Apache-2.0. See `AERO_ODE/AERO_Surface/neuralgcm-main/LICENSE`.
+Modified NeuralGCM source is included under Apache-2.0. See `AERO_ODE/AERO_Surface/neuralgcm-main/LICENSE`.
 
 NeuralGCM pretrained weights (if distributed) are under CC-BY-SA-4.0.
 
