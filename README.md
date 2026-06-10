@@ -107,7 +107,7 @@ conda activate NeuralGCM_LAM
 
 | Topic | Details |
 |---|---|
-| `conda-unpack` | Run once after the first activation to fix hard-coded paths. |
+| conda-unpack | Run once after the first activation to fix hard-coded paths. |
 | Cross-platform | Not supported. A Linux pack only works on Linux. |
 | tar warnings | A few file warnings are acceptable if key packages import correctly. |
 
