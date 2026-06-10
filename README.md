@@ -176,13 +176,13 @@ Automatically generates all curve figures used in the paper and saves them to th
 
 AERO-ODE code and model weights are released by Shanghai Zhangjiang Institute of Mathematics.
 
-Commercial use of these models is prohibited.
+Commercial use of these AERO-ODE models is prohibited.
 
-## Acknowledgements
+## Third-Party Components
 
-This project builds upon the following open-source components:
+Modified [NeuralGCM](https://github.com/neuralgcm/neuralgcm) source is included under
+[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0). See `AERO_ODE/AERO_Surface/neuralgcm-main/LICENSE` and `AERO_ODE/AERO_AIR/neuralgcm-main/LICENSE`.
 
-- [NeuralGCM](https://github.com/neuralgcm/neuralgcm) — code: [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0); pretrained weights: [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
-- [Dinosaur](https://github.com/neuralgcm/dinosaur) — [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)
+NeuralGCM pretrained weights (if distributed) are under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
-If you redistribute NeuralGCM source code or pretrained weights included in this repository, please retain the original license files and attribution notices as required by the respective licenses.
+[Dinosaur](https://github.com/neuralgcm/dinosaur) — Apache-2.0 (if included).
