@@ -1,3 +1,8 @@
+"""
+East (Rb) ACC curves: upper-air + surface combined in one 6x4 figure.
+
+Run: python Draw_Test_ACC_rb.py
+"""
 from pathlib import Path
 import sys
 

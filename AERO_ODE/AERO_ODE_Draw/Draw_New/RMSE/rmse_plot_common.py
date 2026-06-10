@@ -1,3 +1,6 @@
+"""
+Shared RMSE curve plotting: upper-air + surface combined 6x4 subplots.
+"""
 from __future__ import annotations
 
 import os

@@ -1,3 +1,15 @@
+"""
+Plot AERO-ODE RMSE by UTC init hour (upper-air + surface in one 6x4 figure).
+
+- Colored thin lines per init hour; red bold mean
+- Light shaded band between inits and mean
+
+Usage:
+    python Draw_inithour_rmse_air_surface.py              # default combined 6x4
+    python Draw_inithour_rmse_air_surface.py --kind air   # upper-air 5x4 only
+    python Draw_inithour_rmse_air_surface.py --kind surface
+    # Override paths: --data-dir / --save-dir (single kind only)
+"""
 from __future__ import annotations
 
 from pathlib import Path

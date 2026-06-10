@@ -120,12 +120,43 @@ Install the required versions manually from `environment.yml`. This path is not 
 conda env create -f environment.yml -n NeuralGCM_LAM
 ```
 
+## Downloads (GitHub Releases)
+
+Large files (sample data, model checkpoints, and the packed environment) are **not** stored directly in the git tree. They are published as **GitHub Release** assets. Small auxiliary files (grid files, statistics, processing scripts) are already included in the repository. The table below summarizes what each asset is for, where to get it, and where to put it.
+
+| Asset (release) | What it is / used for | Download | Place at |
+|---|---|---|---|
+| `ERA5_2024_08_0X.nc` ([`data-v1`](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1)) | ERA5 global reanalysis on pressure levels, used as the **global initial conditions / forcing** input. One file per day (2024-08-01 … 04), ~795 MB each. | [data-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1) | `AERO_ODE/Data/ERA5/2024/08/0X/2024080X.nc` |
+| `HRRR_2024_08_0X.h5` ([`data-v1`](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1)) | HRRR high-resolution (3 km) regional analysis, used as the **regional target / ground truth** for training and verification. One file per day (2024-08-01 … 04), ~395 MB each. | [data-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1) | `AERO_ODE/Data/HRRR/2024/08/0X.h5` |
+| `AERO_AIR_model_ep5.pth` ([`checkpoints-v1`](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1)) | Trained **AERO-AIR** checkpoint (pressure-level prediction), needed for inference with `AERO_AIR/test_film_rb.py` etc. ~837 MB. | [checkpoints-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1) | `AERO_ODE/AERO_AIR/checkpoints_film/model_ep5.pth` |
+| `AERO_Surface_model_ep5.pth` ([`checkpoints-v1`](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1)) | Trained **AERO-Surface** checkpoint (near-surface prediction), needed for inference with `AERO_Surface/test_film_00z_RMSE.py` etc. ~837 MB. | [checkpoints-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1) | `AERO_ODE/AERO_Surface/checkpoints_film_v2/model_ep5.pth` |
+| `NeuralGCM_LAM_Env.tar.gz.part0X` ([`env-v1`](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/env-v1)) | Packed conda runtime environment (JAX + PyTorch), ~2.98 GB split into 2 parts. See [Environment Setup](#environment-setup). | [env-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/env-v1) | reassemble, then unpack into your conda envs dir |
+
+> Each empty data/checkpoint directory in the repo contains a `DOWNLOAD_FROM_RELEASE.txt` file noting exactly which asset to download and the target filename. See also [`AERO_ODE/Data/README.md`](AERO_ODE/Data/README.md) for copy-paste download commands.
+
+### Quick download (ERA5 / HRRR sample data)
+
+```bash
+BASE=https://github.com/ZZzzzZZZV/AERO_ODE/releases/download/data-v1
+curl -L "$BASE/ERA5_2024_08_01.nc" -o AERO_ODE/Data/ERA5/2024/08/01/20240801.nc
+curl -L "$BASE/HRRR_2024_08_01.h5" -o AERO_ODE/Data/HRRR/2024/08/01.h5
+# ... repeat for 02, 03, 04
+```
+
+### Quick download (model checkpoints)
+
+```bash
+CK=https://github.com/ZZzzzZZZV/AERO_ODE/releases/download/checkpoints-v1
+curl -L "$CK/AERO_AIR_model_ep5.pth"     -o AERO_ODE/AERO_AIR/checkpoints_film/model_ep5.pth
+curl -L "$CK/AERO_Surface_model_ep5.pth" -o AERO_ODE/AERO_Surface/checkpoints_film_v2/model_ep5.pth
+```
+
 ## Data Preparation
 
 This repository provides two types of datasets:
 
-- **Minimal runtime dataset**: bundled with the code in the corresponding directories; no extra download is required and it can be used to quickly verify the workflow.
-- **One-month full dataset**: available from Zenodo — [AeroODE Case Data (August 2024, Eastern Domain)](https://doi.org/10.5281/zenodo.20602695). The release also includes pretrained model weights, paper figures, and the packed virtual environment backup. Suitable for full experiment reproduction and inference evaluation without rebuilding the preprocessing pipeline from scratch.
+- **Minimal runtime dataset**: small auxiliary files (HRRR grid files `lats.npy` / `lons.npy` / `geo.h5`, normalization statistics under `HRRR/stat/`, and the preprocessing scripts in `Data/Code_for_processing_data/`) are bundled directly in the repository; no extra download is required for these.
+- **One-month sample dataset (ERA5 + HRRR, 2024-08-01 … 04)**: the large `.nc` / `.h5` files are distributed via the [`data-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1) (see the download table above). The same data and weights are also mirrored on Zenodo — [AeroODE Case Data](https://doi.org/10.5281/zenodo.20602695) — together with paper figures and the packed environment.
 
 To expand the dataset, raw data can be obtained from the following official sources:
 

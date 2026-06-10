@@ -1,3 +1,9 @@
+"""
+West (Wb) extreme-event metric curves.
+
+One 6x4 figure: 5 upper-air rows + 1 surface row.
+Run: python Draw_Test_Extreme_Metrics_wb.py
+"""
 from __future__ import annotations
 
 from pathlib import Path

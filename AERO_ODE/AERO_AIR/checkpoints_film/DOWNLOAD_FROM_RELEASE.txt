@@ -1,0 +1,7 @@
+Download the AERO-AIR trained checkpoint from the GitHub Release "checkpoints-v1"
+and save it here as model_ep5.pth
+
+Release: https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1
+Direct:  https://github.com/ZZzzzZZZV/AERO_ODE/releases/download/checkpoints-v1/AERO_AIR_model_ep5.pth
+
+Target path: AERO_ODE/AERO_AIR/checkpoints_film/model_ep5.pth
