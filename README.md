@@ -1,10 +1,10 @@
 # AERO-ODE
 
-Python
-PyTorch
-JAX
-CUDA
-Platform
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.4-EE4C2C?logo=pytorch&logoColor=white)
+![JAX](https://img.shields.io/badge/JAX-0.4-orange)
+![CUDA](https://img.shields.io/badge/CUDA-12.1-green?logo=nvidia&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey?logo=linux&logoColor=white)
 
 ## A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting
 
@@ -14,23 +14,23 @@ Platform
 
 **AERO-AIR: pressure-level variable prediction framework**
 
-AERO-AIR pressure-level variable prediction framework
+![AERO-AIR pressure-level variable prediction framework](./assets/AERO_ODE_AIR.png)
 
 **AERO-Surface: surface-variable prediction framework**
 
-AERO-Surface surface-variable prediction framework
+![AERO-Surface surface-variable prediction framework](./assets/AERO_ODE_Surface.png)
 
 ## Visualization
 
 **MSLP forecast comparison (initialized at 00 UTC on 1 January 2024)**
 
-[https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7](https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7)
+https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7
 
 **T2m forecast comparison (initialized at 00 UTC on 1 May 2024)**
 
-[https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272](https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272)
+https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272
 
-Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.
+<sub>Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.</sub>
 
 ## Quick Start
 
