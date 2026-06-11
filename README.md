@@ -135,7 +135,7 @@ cat Data.zip.part00 Data.zip.part01 > Data.zip
 unzip Data.zip -d AERO_ODE/
 ```
 
-- **One-month full dataset**: available from Zenodo — [AeroODE Case Data](https://doi.org/10.5281/zenodo.20602695), for full experiment reproduction.
+- **One-month full dataset**: available from Zenodo — [AeroODE Case Data](https://doi.org/10.5281/zenodo.20602695).
 
 The datasets above are already preprocessed and ready to use. To extend them with your own raw data, download from the official sources below:
 
@@ -154,7 +154,7 @@ The weights are published on the `checkpoints-v1` [release.](https://github.com/
 
 ### Option B: Download from Zenodo
 
-The same pretrained weights are also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the weights from the Zenodo record and place each file at the path listed in the table below. File access may require logging in to Zenodo.
+The same pretrained weights are also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the weights from the Zenodo record and place each file at the path listed in the table below.
 
 
 | Weight                       | Place at                                                  |
@@ -217,6 +217,6 @@ Commercial use of these AERO-ODE models is prohibited.
 
 Modified NeuralGCM source is included under Apache-2.0. See `AERO_ODE/AERO_Surface/neuralgcm-main/LICENSE`.
 
-NeuralGCM pretrained weights (if distributed) are under CC-BY-SA-4.0.
+NeuralGCM pretrained weights are under CC-BY-SA-4.0.
 
-Dinosaur — Apache-2.0 (if included).
+Dinosaur — Apache-2.0.
