@@ -209,8 +209,6 @@ Automatically generates all curve figures used in the paper and saves them to th
 
 ## License
 
-AERO-ODE code and model weights are released by Shanghai Zhangjiang Institute of Mathematics.
-
 Commercial use of these AERO-ODE models is prohibited.
 
 ## Third-Party Components
