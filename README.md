@@ -1,10 +1,10 @@
 # AERO-ODE
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.4-EE4C2C?logo=pytorch&logoColor=white)
-![JAX](https://img.shields.io/badge/JAX-0.4-orange)
-![CUDA](https://img.shields.io/badge/CUDA-12.1-green?logo=nvidia&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey?logo=linux&logoColor=white)
+Python
+PyTorch
+JAX
+CUDA
+Platform
 
 ## A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting
 
@@ -14,27 +14,27 @@
 
 **AERO-AIR: pressure-level variable prediction framework**
 
-![AERO-AIR pressure-level variable prediction framework](./assets/AERO_ODE_AIR.png)
+AERO-AIR pressure-level variable prediction framework
 
 **AERO-Surface: surface-variable prediction framework**
 
-![AERO-Surface surface-variable prediction framework](./assets/AERO_ODE_Surface.png)
+AERO-Surface surface-variable prediction framework
 
 ## Visualization
 
 **MSLP forecast comparison (initialized at 00 UTC on 1 January 2024)**
 
-https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7
+[https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7](https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7)
 
 **T2m forecast comparison (initialized at 00 UTC on 1 May 2024)**
 
-https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272
+[https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272](https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272)
 
-<sub>Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.</sub>
+Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.
 
 ## Quick Start
 
-Open [`AERO_ODE/quick-start.ipynb`](AERO_ODE/quick-start.ipynb) to quickly run AERO-ODE for both pressure-level and surface-variable prediction, generating forecasts, visualizing the results, and producing RMSE curves.
+Open `[AERO_ODE/quick-start.ipynb](AERO_ODE/quick-start.ipynb)` to quickly run AERO-ODE for both pressure-level and surface-variable prediction, generating forecasts, visualizing the results, and producing RMSE curves.
 
 Before running it, make sure you have set up the environment (see [Environment Setup](#environment-setup)) and downloaded the weights and data (either the minimal runtime dataset or the one-month full dataset; see [Weights Preparation](#weights-preparation) and [Data Preparation](#data-preparation)).
 
@@ -142,7 +142,7 @@ The datasets above are already preprocessed and ready to use. To extend them wit
 - HRRR: [https://rapidrefresh.noaa.gov/hrrr/](https://rapidrefresh.noaa.gov/hrrr/)
 - ERA5: [https://cds.climate.copernicus.eu/](https://cds.climate.copernicus.eu/)
 
-Then use the code in `AERO_ODE/Data/Code_for_processing_data` to regrid ERA5 onto a 1.4° Gaussian grid and fill it; HRRR only needs to be downloaded for the corresponding region by latitude/longitude.
+Then use the code in `AERO_ODE/Data/Code_for_processing_data` to regrid ERA5 onto a 1.4° Gaussian grid and fill it.
 
 ## Weights Preparation
 
