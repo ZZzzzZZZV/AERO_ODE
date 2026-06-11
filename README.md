@@ -124,25 +124,17 @@ conda env create -f environment.yml -n NeuralGCM_LAM
 
 This repository provides two types of datasets:
 
-- **Minimal runtime dataset**: a small packaged sample (`Data.zip`) that lets you quickly verify the end-to-end workflow. Because a single GitHub Release asset is limited to 2 GB, `Data.zip` is split into two parts on the [`data-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1). Download both parts, reassemble them, and unzip into the `AERO_ODE/` directory:
+- **Minimal runtime dataset**: a small sample (`Data.zip`) for quickly verifying the workflow. It is split into two parts on the [`data-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1). Download both parts, merge, and unzip into `AERO_ODE/`:
 
 ```bash
 BASE=https://github.com/ZZzzzZZZV/AERO_ODE/releases/download/data-v1
 curl -L "$BASE/Data.zip.part00" -o Data.zip.part00
 curl -L "$BASE/Data.zip.part01" -o Data.zip.part01
-
-# Reassemble the parts into a single archive
 cat Data.zip.part00 Data.zip.part01 > Data.zip
-
-# Optional integrity check (SHA-256):
-# 5dd930873d790bb69a47b0fd67e67e0b860812cc5ef24d2e3e788d27cc7d984a
-sha256sum Data.zip
-
-# Unzip; it expands to the Data/ folder, which belongs at AERO_ODE/Data/
 unzip Data.zip -d AERO_ODE/
 ```
 
-- **One-month full dataset**: available from Zenodo — [AeroODE Case Data (August 2024, Eastern Domain)](https://doi.org/10.5281/zenodo.20602695). It contains one month of processed ERA5/HRRR case data together with paper figures, pretrained weights, and the packed virtual environment, and is suitable for full experiment reproduction and inference evaluation. File access may require logging in to Zenodo.
+- **One-month full dataset**: available from Zenodo — [AeroODE Case Data](https://doi.org/10.5281/zenodo.20602695), for full experiment reproduction.
 
 To expand the dataset, raw data can be obtained from the following official sources:
 
