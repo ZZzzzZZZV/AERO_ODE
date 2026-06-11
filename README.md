@@ -1,10 +1,10 @@
 # AERO-ODE
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.4-EE4C2C?logo=pytorch&logoColor=white)
-![JAX](https://img.shields.io/badge/JAX-0.4-orange)
-![CUDA](https://img.shields.io/badge/CUDA-12.1-green?logo=nvidia&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey?logo=linux&logoColor=white)
+Python
+PyTorch
+JAX
+CUDA
+Platform
 
 ## A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting
 
@@ -14,23 +14,29 @@
 
 **AERO-AIR: pressure-level variable prediction framework**
 
-![AERO-AIR pressure-level variable prediction framework](./assets/AERO_ODE_AIR.png)
+AERO-AIR pressure-level variable prediction framework
 
 **AERO-Surface: surface-variable prediction framework**
 
-![AERO-Surface surface-variable prediction framework](./assets/AERO_ODE_Surface.png)
+AERO-Surface surface-variable prediction framework
 
 ## Visualization
 
 **MSLP forecast comparison (initialized at 00 UTC on 1 January 2024)**
 
-https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7
+[https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7](https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7)
 
 **T2m forecast comparison (initialized at 00 UTC on 1 May 2024)**
 
-https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272
+[https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272](https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272)
 
-<sub>Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.</sub>
+Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.
+
+## Quick Start
+
+Open [`AERO_ODE/quick-start.ipynb`](AERO_ODE/quick-start.ipynb) to quickly run AERO-ODE for both pressure-level and surface-variable prediction, generating forecasts, visualizing the results, and producing RMSE curves.
+
+Before running it, make sure you have set up the environment (see [Environment Setup](#environment-setup)) and downloaded the weights and data (either the minimal runtime dataset or the one-month full dataset; see [Weights Preparation](#weights-preparation) and [Data Preparation](#data-preparation)).
 
 ## Environment Setup
 
@@ -40,18 +46,15 @@ Because `AERO-ODE` depends on both JAX and PyTorch, which have strict version co
 
 #### Option A: Download from GitHub Release
 
-The packed environment (`NeuralGCM_LAM_Env.tar.gz`, ~2.98 GB) is published as a GitHub Release asset. Because a single release asset is limited to 2 GB, it is split into two parts. Download both parts from the [`env-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/env-v1) and reassemble them:
+Download both parts from the [env-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/env-v1) and reassemble them:
 
 ```bash
 cat NeuralGCM_LAM_Env.tar.gz.part00 NeuralGCM_LAM_Env.tar.gz.part01 > NeuralGCM_LAM_Env.tar.gz
-# Optional integrity check (SHA-256):
-# 375604987cbb299130e5eefb317dd4985ca730155837b06be9faefb49ad51552
-sha256sum NeuralGCM_LAM_Env.tar.gz
 ```
 
 #### Option B: Download from Zenodo
 
-The same packed environment is also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the archive from Zenodo and extract `NeuralGCM_LAM_Env.tar.gz` before continuing with the steps below. File access may require logging in to Zenodo if the record is restricted.
+The same packed environment is also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the archive from Zenodo and extract `NeuralGCM_LAM_Env.tar.gz`.
 
 #### Step 1: Find your conda envs directory
 
@@ -105,11 +108,12 @@ conda activate NeuralGCM_LAM
 
 ### Notes
 
-| Topic | Details |
-|---|---|
-| conda-unpack | Run once after the first activation to fix hard-coded paths. |
-| Cross-platform | Not supported. A Linux pack only works on Linux. |
-| tar warnings | A few file warnings are acceptable if key packages import correctly. |
+
+| Topic          | Details                                                              |
+| -------------- | -------------------------------------------------------------------- |
+| conda-unpack   | Run once after the first activation to fix hard-coded paths.         |
+| Cross-platform | Not supported. A Linux pack only works on Linux.                     |
+| tar warnings   | A few file warnings are acceptable if key packages import correctly. |
 
 
 ### Method 2: Create the environment manually
@@ -124,47 +128,40 @@ conda env create -f environment.yml -n NeuralGCM_LAM
 
 This repository provides two types of datasets:
 
-- **Minimal runtime dataset**: a small sample (`Data.zip`) for quickly verifying the workflow. It is split into two parts on the [`data-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1). Download both parts, merge, and unzip into `AERO_ODE/`:
+- **Minimal runtime dataset**: a small sample (`Data.zip`) for quickly verifying the workflow. It is split into two parts on the `[data-v1` release]([https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1)). Download both parts, merge, and unzip into `AERO_ODE/`:
 
 ```bash
-BASE=https://github.com/ZZzzzZZZV/AERO_ODE/releases/download/data-v1
-curl -L "$BASE/Data.zip.part00" -o Data.zip.part00
-curl -L "$BASE/Data.zip.part01" -o Data.zip.part01
 cat Data.zip.part00 Data.zip.part01 > Data.zip
 unzip Data.zip -d AERO_ODE/
 ```
 
 - **One-month full dataset**: available from Zenodo — [AeroODE Case Data](https://doi.org/10.5281/zenodo.20602695), for full experiment reproduction.
 
-To expand the dataset, raw data can be obtained from the following official sources:
+The datasets above are already preprocessed and ready to use. To extend them with your own raw data, download from the official sources below:
 
 - HRRR: [https://rapidrefresh.noaa.gov/hrrr/](https://rapidrefresh.noaa.gov/hrrr/)
 - ERA5: [https://cds.climate.copernicus.eu/](https://cds.climate.copernicus.eu/)
 
-After downloading, apply bilinear interpolation using the latitude/longitude grid files provided in the `HRRR` folder to generate the model input format.
+Then use the code in `AERO_ODE/Data/Code_for_processing_data` to regrid ERA5 onto a 1.4° Gaussian grid and fill it; HRRR only needs to be downloaded for the corresponding region by latitude/longitude.
 
 ## Weights Preparation
 
-Pretrained model checkpoints are **not** stored directly in the git tree. Two trained weights are required for inference, and can be obtained from either of the sources below.
-
-| Weight | What it is / used for | Place at |
-|---|---|---|
-| `AERO_AIR_model_ep5.pth` | Trained **AERO-AIR** checkpoint (pressure-level prediction), used by `AERO_AIR/test_film_rb.py`, `Generate_Yearly_Forecast_rb.py`, etc. (~837 MB) | `AERO_ODE/AERO_AIR/checkpoints_film/model_ep5.pth` |
-| `AERO_Surface_model_ep5.pth` | Trained **AERO-Surface** checkpoint (near-surface prediction), used by `AERO_Surface/test_film_00z_RMSE.py`, `Generate_Yearly_Forecast_Surface.py`, etc. (~837 MB) | `AERO_ODE/AERO_Surface/checkpoints_film_v2/model_ep5.pth` |
+Two trained weights are required for inference, and can be obtained from either of the sources below.
 
 ### Option A: Download from GitHub Release
 
-The weights are published on the [`checkpoints-v1` release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1):
-
-```bash
-CK=https://github.com/ZZzzzZZZV/AERO_ODE/releases/download/checkpoints-v1
-curl -L "$CK/AERO_AIR_model_ep5.pth"     -o AERO_ODE/AERO_AIR/checkpoints_film/model_ep5.pth
-curl -L "$CK/AERO_Surface_model_ep5.pth" -o AERO_ODE/AERO_Surface/checkpoints_film_v2/model_ep5.pth
-```
+The weights are published on the `checkpoints-v1` [release.](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1)
 
 ### Option B: Download from Zenodo
 
-The same pretrained weights are also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the weights from the Zenodo record and place each file at the path listed in the table above. File access may require logging in to Zenodo.
+The same pretrained weights are also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the weights from the Zenodo record and place each file at the path listed in the table below. File access may require logging in to Zenodo.
+
+
+| Weight                       | Place at                                                  |
+| ---------------------------- | --------------------------------------------------------- |
+| `AERO_AIR_model_ep5.pth`     | `AERO_ODE/AERO_AIR/checkpoints_film/model_ep5.pth`        |
+| `AERO_Surface_model_ep5.pth` | `AERO_ODE/AERO_Surface/checkpoints_film_v2/model_ep5.pth` |
+
 
 ## Model Inference
 
