@@ -1,9 +1,0 @@
-Download the HRRR daily files from the GitHub Release "data-v1" and save them here:
-
-  HRRR_2024_08_01.h5  ->  01.h5
-  HRRR_2024_08_02.h5  ->  02.h5
-  HRRR_2024_08_03.h5  ->  03.h5
-  HRRR_2024_08_04.h5  ->  04.h5
-
-Release: https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1
-Direct base: https://github.com/ZZzzzZZZV/AERO_ODE/releases/download/data-v1/

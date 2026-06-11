@@ -1,4 +1,0 @@
-Download ERA5_2024_08_04.nc from the GitHub Release "data-v1" and save it here as 20240804.nc
-
-Release: https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1
-Direct:  https://github.com/ZZzzzZZZV/AERO_ODE/releases/download/data-v1/ERA5_2024_08_04.nc
