@@ -7,7 +7,7 @@ authors:
 year: 2026
 url: "https://github.com/ZZzzzZZZV/AERO_ODE"
 repository-code: "https://github.com/ZZzzzZZZV/AERO_ODE"
-license: Apache-2.0
+license: CC-BY-NC-4.0
 preferred-citation:
   type: unpublished
   title: "A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting"
