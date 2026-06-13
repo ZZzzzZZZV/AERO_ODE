@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code, the model weights, or the data, please cite the corresponding paper (currently under review)."
+title: "AERO-ODE: A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting"
+authors:
+  - family-names: "Zhang"
+    given-names: "Jing"
+year: 2026
+url: "https://github.com/ZZzzzZZZV/AERO_ODE"
+repository-code: "https://github.com/ZZzzzZZZV/AERO_ODE"
+license: Apache-2.0
+preferred-citation:
+  type: unpublished
+  title: "A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting"
+  authors:
+    - family-names: "Zhang"
+      given-names: "Jing"
+  year: 2026
+  notes: "Manuscript under review. Journal and DOI will be added after publication."
