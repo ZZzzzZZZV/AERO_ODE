@@ -10,8 +10,6 @@
 
 `AERO-ODE` is a physics-guided global-to-regional weather forecasting framework for fast, high-resolution regional prediction. Starting from global initial conditions, the model generates hourly 72 h regional forecasts at 3 km resolution, covering pressure-level variables and near-surface variables without requiring separate global surface lateral-boundary inputs.
 
-> **Citation required.** Any academic work that uses this code, the model weights, or the data must cite the corresponding paper (see [Citation](#citation)). Free for non-commercial use with attribution; commercial use is prohibited.
-
 ## Model Architecture
 
 **AERO-AIR: pressure-level variable prediction framework**
@@ -36,9 +34,9 @@ https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272
 
 ## Quick Start
 
-Open `[AERO_ODE/quick-start.ipynb](AERO_ODE/quick-start.ipynb)` to quickly run AERO-ODE for both pressure-level and surface-variable prediction, generating forecasts, visualizing the results, and producing RMSE curves.
+Open [`AERO_ODE/quick-start.ipynb`](AERO_ODE/quick-start.ipynb) to quickly run AERO-ODE for both pressure-level and surface-variable prediction, generating forecasts, visualizing the results, and producing RMSE curves.
 
-Before running it, make sure you have set up the environment (see [Environment Setup](#environment-setup)) and downloaded the weights and data (either the minimal runtime dataset or the one-month full dataset; see [Weights Preparation](#weights-preparation) and [Data Preparation](#data-preparation)).
+Before running it, make sure you have set up the environment (see [Environment Setup](#environment-setup)) and downloaded the weights and data (either the minimal runtime dataset or the one-month dataset; see [Weights Preparation](#weights-preparation) and [Data Preparation](#data-preparation)).
 
 ## Environment Setup
 
@@ -137,7 +135,7 @@ cat Data.zip.part00 Data.zip.part01 > Data.zip
 unzip Data.zip -d AERO_ODE/
 ```
 
-- **One-month full dataset**: available from Zenodo — [AeroODE Case Data](https://doi.org/10.5281/zenodo.20602695).
+- **One-month dataset**: available from Zenodo — [AeroODE Case Data](https://doi.org/10.5281/zenodo.20602695).
 
 The datasets above are already preprocessed and ready to use. To extend them with your own raw data, download from the official sources below:
 
