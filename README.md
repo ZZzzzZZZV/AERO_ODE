@@ -10,6 +10,8 @@
 
 `AERO-ODE` is a physics-guided global-to-regional weather forecasting framework for fast, high-resolution regional prediction. Starting from global initial conditions, the model generates hourly 72 h regional forecasts at 3 km resolution, covering pressure-level variables and near-surface variables without requiring separate global surface lateral-boundary inputs.
 
+> **Citation required.** Any academic work that uses this code, the model weights, or the data must cite the corresponding paper (see [Citation](#citation)). The code is released under the Apache-2.0 [`LICENSE`](LICENSE), which permits use provided the copyright notice is retained.
+
 ## Model Architecture
 
 **AERO-AIR: pressure-level variable prediction framework**
@@ -206,6 +208,21 @@ python run_all_drawings.py
 ```
 
 Automatically generates all curve figures used in the paper and saves them to the `Draw_New` directory.
+
+## Citation
+
+The corresponding paper is currently under review. The citation will be updated once it is formally published.
+
+A placeholder BibTeX entry is provided below (the journal and DOI will be added after publication):
+
+```bibtex
+@unpublished{aeroode2026,
+  title  = {A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting},
+  author = {Zhang, Jing and others},
+  year   = {2026},
+  note   = {Manuscript under review}
+}
+```
 
 ## License
 
