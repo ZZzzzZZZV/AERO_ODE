@@ -10,7 +10,7 @@
 
 `AERO-ODE` is a physics-guided global-to-regional weather forecasting framework for fast, high-resolution regional prediction. Starting from global initial conditions, the model generates hourly 72 h regional forecasts at 3 km resolution, covering pressure-level variables and near-surface variables without requiring separate global surface lateral-boundary inputs.
 
-> **Citation required.** Any academic work that uses this code, the model weights, or the data must cite the corresponding paper (see [Citation](#citation)). This project is released under the [CC BY-NC 4.0](LICENSE) license: non-commercial use only, with attribution.
+> **Citation required.** Any academic work that uses this code, the model weights, or the data must cite the corresponding paper (see [Citation](#citation)). Free for non-commercial use with attribution; commercial use is prohibited.
 
 ## Model Architecture
 
@@ -226,7 +226,7 @@ A placeholder BibTeX entry is provided below (the journal and DOI will be added 
 
 ## License
 
-This project (code, model weights, and data) is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license; see [`LICENSE`](LICENSE). You may use, share, and adapt the material for **non-commercial** purposes with appropriate attribution. **Commercial use is prohibited.** Third-party components retain their own licenses (see below).
+Free for non-commercial use (research and education) with attribution. **Commercial use is prohibited.** Third-party components keep their own licenses (see below).
 
 ## Third-Party Components
 
