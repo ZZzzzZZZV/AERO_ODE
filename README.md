@@ -128,7 +128,7 @@ conda env create -f environment.yml -n NeuralGCM_LAM
 
 This repository provides two types of datasets:
 
-- **Minimal runtime dataset**: a small sample (`Data.zip`) for quickly verifying the workflow. It is split into two parts on the `[data-v1` release]([https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1)). Download both parts, merge, and unzip into `AERO_ODE/`:
+- **Minimal runtime dataset**: a small sample (`Data.zip`) for quickly verifying the workflow. It is split into two parts on the [data-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1). Download both parts, merge, and unzip into `AERO_ODE/`:
 
 ```bash
 cat Data.zip.part00 Data.zip.part01 > Data.zip
@@ -150,7 +150,7 @@ Two trained weights are required for inference, and can be obtained from either 
 
 ### Option A: Download from GitHub Release
 
-The weights are published on the `checkpoints-v1` [release.](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1)
+The weights are published on the [checkpoints-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1):
 
 ### Option B: Download from Zenodo
 
