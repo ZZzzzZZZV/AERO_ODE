@@ -16,6 +16,12 @@
 
 ![AERO-AIR pressure-level variable prediction framework](./assets/AERO_ODE_AIR.png)
 
+## AERO-AIR versions
+
+The currently released open-source code is **AERO-AIR 1.0**, whose pressure levels are **50, 500, 850 and 1000 hPa**.
+
+**AERO-AIR 2.0** uses **300, 500, 700, 850 and 925 hPa**. Its code is being organized and will be updated soon; that release will also provide the eastern- and western-region models and their pretrained weights.
+
 **AERO-Surface: surface-variable prediction framework**
 
 ![AERO-Surface surface-variable prediction framework](./assets/AERO_ODE_Surface.png)
