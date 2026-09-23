@@ -220,11 +220,13 @@ The corresponding paper is currently under review. The citation will be updated 
 A placeholder BibTeX entry is provided below (the journal and DOI will be added after publication):
 
 ```bibtex
-@unpublished{aeroode2026,
-  title  = {A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting},
-  author = {Zhang, Jing and others},
-  year   = {2026},
-  note   = {Manuscript under review}
+@article{aeroode2026,
+  title   = {A physics-guided integrated global to regional method for high-resolution weather forecasting},
+  author  = {Zhang, Jing and Dai, Yutong and Wang, Yu and He, Fang and Xu, Pengbo and Yin, Junping},
+  journal = {npj Climate and Atmospheric Science},
+  year    = {2026},
+  doi     = {10.1038/s41612-026-01555-w},
+  note    = {Accepted. The DOI will resolve when the article is published online.}
 }
 ```
 
