@@ -22,18 +22,6 @@ This repository releases the **western-region** models (pressure levels 300 / 50
 
 ![AERO-Surface surface-variable prediction framework](AERO_ODE/assets/AERO_ODE_Surface.png)
 
-## Visualization
-
-**MSLP forecast comparison (initialized at 00 UTC on 1 January 2024)**
-
-[https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7](https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7)
-
-**T2m forecast comparison (initialized at 00 UTC on 1 May 2024)**
-
-[https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272](https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272)
-
-Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.
-
 ## Quick Start
 
 Open [`AERO_ODE/quick-start.ipynb`](AERO_ODE/quick-start.ipynb) to run pressure-level and surface-variable prediction, generate a 72 h forecast, plot snapshots, and compute RMSE. Outputs are written to `AERO_ODE/quick-start_output/`.
