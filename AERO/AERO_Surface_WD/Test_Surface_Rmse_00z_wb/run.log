@@ -1,0 +1,49 @@
+JAX Devices: [cuda(id=0)]
+config: batch=1, world_size=1
+mode: 00 UTC inits only, surface diagnosis
+  [OK] HRRR_STAT_PATH: /home/zhangjing/Code/OPEN_Code/AERO_Surface_WD/Hrrr_rb/data
+  [OK] mean_west: /home/zhangjing/Code/OPEN_Code/AERO_Surface_WD/Hrrr_rb/data/2015_2023_mean_west.npy
+  [OK] std_west: /home/zhangjing/Code/OPEN_Code/AERO_Surface_WD/Hrrr_rb/data/2015_2023_std_west.npy
+  [OK] STATIC_DATA_PATH: /home/zhangjing/Code/OPEN_Code/AERO_Surface_WD/Hrrr_rb/data
+  [OK] NGCM_CHECKPOINT: /home/zhangjing/Code/OPEN_Code/shared_assets/NeuralGCM_Weights/neuralgcm_04_30_2024_neural_gcm_dynamic_forcing_deterministic_1_4_deg.pkl
+  [OK] TEST_DATA_ROOT: /home/zhangjing/Code/OPEN_Code/data/era5_test
+  [OK] TEST_HRRR_ROOT: /home/zhangjing/Code/OPEN_Code/data/hrrr_test
+Using checkpoint: /home/zhangjing/Code/OPEN_Code/AERO_Surface_WD/checkpoints_film_v2/model_ep5.pth
+Initializing NeuralGCM...
+Loading Diagnosis Model...
+/home/zhangjing/Code/OPEN_Code/AERO_Surface_WD/test_film_00z_RMSE.py:179: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(CHECKPOINT_PATH, map_location=device)
+scanning ERA5 directory: /home/zhangjing/Code/OPEN_Code/data/era5_test
+scanning HRRR directories: ['/home/zhangjing/Code/OPEN_Code/data/hrrr_test']
+linked 30 HRRR files
+loaded valid-sample cache: /home/zhangjing/Code/OPEN_Code/AERO_Surface_WD/.dataset_cache/valid_indices_ae856587eae0ebcd81f9ff3c75153fbc5cb6956e.npz (n=647)
+dataset ready: 30 ERA5 files, 30 HRRR files, 647 valid samples (lead_time=73)
+raw dataset size: 647
+00 UTC samples: 27 (kept 4.2%)
+Start Evaluation (00Z only, Surface Variables)...
+Batch 0/27 | Init: 2024/04/01/00 | Loss: 0.33861
+Batch 10/27 | Init: 2024/04/11/00 | Loss: 0.27375
+Batch 20/27 | Init: 2024/04/21/00 | Loss: 0.31042
+
+=== Evaluation Complete [00Z Only, Surface Variables] (27 batches, 1 GPUs) ===
+Average RelativeL2 Loss: 0.34198
+Figure saved to /home/zhangjing/Code/OPEN_Code/AERO_Surface_WD/Test_Surface_Rmse_00z_wb/rmse_surface_00z.png
+
+==================================================
+Surface Variable RMSE Summary [00Z Only]
+==================================================
+Variable   | Mean RMSE       | Unit    
+--------------------------------------------------
+MSLP       | 114.8514        | Pa      
+U10        | 1.8043          | m/s     
+V10        | 1.8601          | m/s     
+T2m        | 1.5562          | K       
+==================================================
+
+RMSE by Lead Time (selected hours):
+Variable   | 6h       | 12h      | 24h      | 36h      | 48h      | 72h     
+----------------------------------------------------------------------
+MSLP       | 80.6590  | 85.8083  | 108.2852 | 106.5397 | 144.0705 | 170.9118
+U10        | 1.6014   | 1.5252   | 2.0154   | 1.6367   | 2.1224   | 2.2977  
+V10        | 1.6849   | 1.5350   | 2.0596   | 1.6587   | 2.2060   | 2.3260  
+T2m        | 1.2380   | 1.4280   | 1.6077   | 1.5776   | 1.8321   | 1.9185  

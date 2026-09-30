@@ -1,0 +1,37 @@
+JAX Devices: [cuda(id=0)]
+config: batch=1, world_size=1
+mode: 00 UTC inits only
+Using checkpoint: /home/zhangjing/Code/OPEN_Code/AERO_AIR_WD/checkpoints_film_25/model_ep5.pth
+Start Evaluation (00Z only)...
+Rank 0 | Batch 0/27 | Init: 2024/04/01/00 | Loss: 0.19544
+Rank 0 | Batch 10/27 | Init: 2024/04/11/00 | Loss: 0.19357
+Rank 0 | Batch 17/27 | Init: 2024/04/18/00 | Loss: 0.20347
+Rank 0 | Batch 18/27 | Init: 2024/04/19/00 | Loss: 0.19691
+Rank 0 | Batch 19/27 | Init: 2024/04/20/00 | Loss: 0.20485
+Rank 0 | Batch 20/27 | Init: 2024/04/21/00 | Loss: 0.19901
+Rank 0 | Batch 21/27 | Init: 2024/04/22/00 | Loss: 0.19971
+Rank 0 | Batch 22/27 | Init: 2024/04/23/00 | Loss: 0.19828
+Rank 0 | Batch 23/27 | Init: 2024/04/24/00 | Loss: 0.20145
+Rank 0 | Batch 24/27 | Init: 2024/04/25/00 | Loss: 0.20223
+Rank 0 | Batch 25/27 | Init: 2024/04/26/00 | Loss: 0.21003
+Rank 0 | Batch 26/27 | Init: 2024/04/27/00 | Loss: 0.22365
+Rank 0 finished loader loop (local batches=27)
+
+=== Evaluation Complete [00Z Only] (27 batches, 1 GPUs) ===
+Average Loss: 0.21751
+Figure saved to /home/zhangjing/Code/OPEN_Code/AERO_AIR_WD/Test_Data_Rmse_00z_wb/rmse_aero_00z.png
+
+AERO-ODE RMSE:
+Variable   | AERO-ODE  
+------------------------
+Z300       | 11.2359
+Z500       | 8.1793
+Z700       | 6.7832
+Z850       | 7.2936
+Z925       | 8.5356
+T300       | 0.7304
+T500       | 0.6898
+T700       | 0.8177
+T850       | 1.2171
+T925       | 1.3419
+MEAN       | 2.8533
