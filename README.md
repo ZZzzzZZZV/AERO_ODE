@@ -10,56 +10,45 @@
 
 `AERO-ODE` is a physics-guided global-to-regional weather forecasting framework for fast, high-resolution regional prediction. Starting from global initial conditions, the model generates hourly 72 h regional forecasts at 3 km resolution, covering pressure-level variables and near-surface variables without requiring separate global surface lateral-boundary inputs.
 
+This repository releases the **western-region** models (pressure levels 300 / 500 / 700 / 850 / 925 hPa). The corresponding code is in [`AERO/`](AERO/).
+
 ## Model Architecture
 
 **AERO-AIR: pressure-level variable prediction framework**
 
-![AERO-AIR pressure-level variable prediction framework](./assets/AERO_ODE_AIR.png)
-
-## AERO-AIR versions
-
-The currently released open-source code is **AERO-AIR 1.0**, whose pressure levels are **50, 500, 850 and 1000 hPa**.
-
+![AERO-AIR pressure-level variable prediction framework](AERO/assets/AERO_ODE_AIR.png)
 
 **AERO-Surface: surface-variable prediction framework**
 
-![AERO-Surface surface-variable prediction framework](./assets/AERO_ODE_Surface.png)
+![AERO-Surface surface-variable prediction framework](AERO/assets/AERO_ODE_Surface.png)
 
 ## Visualization
 
 **MSLP forecast comparison (initialized at 00 UTC on 1 January 2024)**
 
-https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7
+[https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7](https://github.com/user-attachments/assets/885a7942-2d5e-4a63-a549-377119f7c7c7)
 
 **T2m forecast comparison (initialized at 00 UTC on 1 May 2024)**
 
-https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272
+[https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272](https://github.com/user-attachments/assets/9661c7b1-1434-4647-b24f-9b25afdaa272)
 
-<sub>Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.</sub>
+Note: These visualizations do not imply that AERO-ODE outperforms global models overall; they are intended only to illustrate its additional regional gains over the target domain.
 
 ## Quick Start
 
-Open [`AERO_ODE/quick-start.ipynb`](AERO_ODE/quick-start.ipynb) to quickly run AERO-ODE for both pressure-level and surface-variable prediction, generating forecasts, visualizing the results, and producing RMSE curves.
+Open [`AERO/quick-start.ipynb`](AERO/quick-start.ipynb) to run pressure-level and surface-variable prediction, generate a 72 h forecast, plot snapshots, and compute RMSE. Outputs are written to `AERO/quick-start_output/`.
 
-Before running it, make sure you have set up the environment (see [Environment Setup](#environment-setup)) and downloaded the weights and data (either the minimal runtime dataset or the one-month dataset; see [Weights Preparation](#weights-preparation) and [Data Preparation](#data-preparation)).
+Before running it, set up the environment (see [Environment Setup](#environment-setup)) and download the weights and data (see [Weights Preparation](#weights-preparation) and [Data Preparation](#data-preparation)).
 
 ## Environment Setup
+
+
 
 ### Method 1: Use the packed environment (preferred)
 
 Because `AERO-ODE` depends on both JAX and PyTorch, which have strict version compatibility requirements, we provide a packed backup of the authors' virtual environment. Follow the steps below to restore the runtime environment.
 
-#### Option A: Download from GitHub Release
-
-Download both parts from the [env-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/env-v1) and reassemble them:
-
-```bash
-cat NeuralGCM_LAM_Env.tar.gz.part00 NeuralGCM_LAM_Env.tar.gz.part01 > NeuralGCM_LAM_Env.tar.gz
-```
-
-#### Option B: Download from Zenodo
-
-The same packed environment is also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the archive from Zenodo and extract `NeuralGCM_LAM_Env.tar.gz`.
+Download `Virtual_Environment_Configuration.zip` from the [AERO_ODE_Case_Data](https://huggingface.co/datasets/ZhangJing1106170090/AERO_ODE_Case_Data) dataset on Hugging Face, extract it, and use the packed environment archive inside (`NeuralGCM_LAM_Env.tar.gz`) in the steps below.
 
 #### Step 1: Find your conda envs directory
 
@@ -73,15 +62,19 @@ For example:
 /home/zhangjing09/miniconda3/envs/
 ```
 
+
+
 #### Step 2: Create the target directory for the unpacked environment
 
 ```bash
 mkdir -p /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM
 ```
 
+
+
 #### Step 3: Extract the archive
 
-Download the packed environment using **Option A** or **Option B** above, then extract it:
+Extract the packed environment archive:
 
 ```bash
 tar -xzvf NeuralGCM_LAM_Env.tar.gz -C /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM
@@ -98,6 +91,8 @@ source /home/zhangjing09/miniconda3/envs/NeuralGCM_LAM/bin/activate
 conda-unpack
 ```
 
+
+
 #### Step 5: Verify the installation
 
 ```bash
@@ -105,11 +100,22 @@ python -c "import jax; print('jax:', jax.__version__)"      # jax: 0.4.29
 python -c "import torch; print('torch:', torch.__version__)"  # torch: 2.4.0+cu121
 ```
 
+If `neuralgcm` or `dinosaur` is not already on `PYTHONPATH`, install the copies shipped in this repo:
+
+```bash
+pip install -e AERO/physics_core/dinosaur-main/dinosaur-main
+pip install -e AERO/physics_core/neuralgcm-main
+```
+
+
+
 #### Daily activation
 
 ```bash
 conda activate NeuralGCM_LAM
 ```
+
+
 
 ### Notes
 
@@ -121,96 +127,136 @@ conda activate NeuralGCM_LAM
 | tar warnings   | A few file warnings are acceptable if key packages import correctly. |
 
 
+
+
 ### Method 2: Create the environment manually
 
-Install the required versions manually from `environment.yml`. This path is not recommended unless the packed environment cannot be used.
+Install the required versions manually from `AERO/environment.yml`. This path is not recommended unless the packed environment cannot be used.
 
 ```bash
-conda env create -f environment.yml -n NeuralGCM_LAM
+conda env create -f AERO/environment.yml -n NeuralGCM_LAM
 ```
+
+
 
 ## Data Preparation
 
-This repository provides two types of datasets:
+Case data for the current western-region models (300 / 500 / 700 / 850 / 925 hPa) is on Hugging Face:
 
-- **Minimal runtime dataset**: a small sample (`Data.zip`) for quickly verifying the workflow. It is split into two parts on the [data-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/data-v1). Download both parts, merge, and unzip into `AERO_ODE/`:
+[ZhangJing1106170090/AERO_ODE_Case_Data](https://huggingface.co/datasets/ZhangJing1106170090/AERO_ODE_Case_Data)
+
+Download and unzip into the `AERO/` directory. Keep the extracted folder names unchanged.
 
 ```bash
-cat Data.zip.part00 Data.zip.part01 > Data.zip
-unzip Data.zip -d AERO_ODE/
+pip install -U huggingface_hub
+huggingface-cli download ZhangJing1106170090/AERO_ODE_Case_Data \
+  data.zip \
+  --repo-type dataset --local-dir AERO
+unzip AERO/data.zip -d AERO
 ```
 
-- **One-month dataset**: available from Zenodo — [AeroODE Case Data](https://doi.org/10.5281/zenodo.20602695).
+This repository expects preprocessed data under `AERO/data/`:
 
-The datasets above are already preprocessed and ready to use. To extend them with your own raw data, download from the official sources below:
+```text
+AERO/data/era5_test/YYYY/MM/DD/YYYYMMDD.nc
+AERO/data/hrrr_test/MM/DD.h5
+AERO/data/hrrr_stat/mean_39.npy
+```
+
+The Hugging Face archives are already preprocessed and ready to use. To extend them with your own raw data, download from the official sources below:
 
 - HRRR: [https://rapidrefresh.noaa.gov/hrrr/](https://rapidrefresh.noaa.gov/hrrr/)
 - ERA5: [https://cds.climate.copernicus.eu/](https://cds.climate.copernicus.eu/)
 
-Then use the code in `AERO_ODE/Data/Code_for_processing_data` to regrid ERA5 onto a 1.4° Gaussian grid and fill it.
+Then use the code in `AERO/script/Code_for_processing_data` to regrid ERA5 onto a 1.4° Gaussian grid and fill it. Edit the path constants at the top of each script before running.
+
+
 
 ## Weights Preparation
 
-Two trained weights are required for inference, and can be obtained from either of the sources below.
+AERO-AIR, AERO-Surface, and NeuralGCM checkpoints are on Hugging Face:
 
-### Option A: Download from GitHub Release
+[ZhangJing1106170090/AERO_ODE_Case_Data](https://huggingface.co/datasets/ZhangJing1106170090/AERO_ODE_Case_Data)
 
-The weights are published on the [checkpoints-v1 release](https://github.com/ZZzzzZZZV/AERO_ODE/releases/tag/checkpoints-v1):
+Download the zip files below and unzip them **into `AERO/`**. Keep the extracted folder names unchanged.
 
-### Option B: Download from Zenodo
+### AERO-AIR and AERO-Surface
 
-The same pretrained weights are also included in the [AeroODE Case Data release on Zenodo](https://doi.org/10.5281/zenodo.20602695). Download the weights from the Zenodo record and place each file at the path listed in the table below.
+```bash
+pip install -U huggingface_hub
+huggingface-cli download ZhangJing1106170090/AERO_ODE_Case_Data \
+  Checkpoints.zip \
+  --repo-type dataset --local-dir AERO
+unzip AERO/Checkpoints.zip -d AERO
+```
+
+The extracted files should sit at:
+
+| Weight | Place at |
+| ------ | -------- |
+| `checkpoints_film_25/model_ep5.pth` | `AERO/AERO_AIR_WD/checkpoints_film_25/model_ep5.pth` |
+| `checkpoints_film_v2/model_ep5.pth` | `AERO/AERO_Surface_WD/checkpoints_film_v2/model_ep5.pth` |
+
+### NeuralGCM
+
+Inference loads the NeuralGCM 1.4° checkpoint from `AERO/shared_assets/NeuralGCM_Weights/`. This file is too large for GitHub, so it is hosted on Hugging Face (`NeuralGCM_Weights.zip`, about 71 MB).
+
+```bash
+huggingface-cli download ZhangJing1106170090/AERO_ODE_Case_Data \
+  NeuralGCM_Weights.zip \
+  --repo-type dataset --local-dir AERO
+unzip AERO/NeuralGCM_Weights.zip -d AERO
+```
+
+After unzipping, you should have:
+
+```text
+AERO/shared_assets/NeuralGCM_Weights/neuralgcm_04_30_2024_neural_gcm_dynamic_forcing_deterministic_1_4_deg.pkl
+```
 
 
-| Weight                       | Place at                                                  |
-| ---------------------------- | --------------------------------------------------------- |
-| `AERO_AIR_model_ep5.pth`     | `AERO_ODE/AERO_AIR/checkpoints_film/model_ep5.pth`        |
-| `AERO_Surface_model_ep5.pth` | `AERO_ODE/AERO_Surface/checkpoints_film_v2/model_ep5.pth` |
+
 
 
 ## Model Inference
 
+Start from [`AERO/quick-start.ipynb`](AERO/quick-start.ipynb). To run the same steps on their own, use the code below.
+
 ### AERO-AIR
 
-Run the following under the `AERO_AIR` directory:
+Run the following under the `AERO/AERO_AIR_WD` directory:
 
 ```bash
-python test_film_rb.py
+python test_film_wb.py
 ```
 
-Runs pressure-level variable prediction and computes RMSE; outputs and error curves are saved to `Test_Data_Rmse_00z`.
+Runs pressure-level variable prediction and computes RMSE; outputs and error curves are saved to `Test_Data_Rmse_00z_wb`.
 
 ```bash
-python Generate_Yearly_Forecast_rb.py
+python Generate_Forecast_wb.py
 ```
 
-Generates full-year forecast data.
+Generates forecast data.
 
 ### AERO-Surface
 
-Run the following under the `AERO_Surface` directory:
+Run the following under the `AERO/AERO_Surface_WD` directory:
 
 ```bash
 python test_film_00z_RMSE.py
 ```
 
-Runs near-surface variable prediction and computes RMSE; outputs and error curves are saved to `Test_Surface_Rmse_00z`.
+Runs near-surface variable prediction and computes RMSE; outputs and error curves are saved to `Test_Surface_Rmse_00z_wb`.
 
 ```bash
-python Generate_Yearly_Forecast_Surface.py
+python Generate_Forecast_Surface.py
 ```
 
-Generates full-year near-surface forecast data.
+Generates near-surface forecast data.
 
 ### Result Visualization
 
-Run the following under `AERO_ODE_Draw/Draw_New`:
-
-```bash
-python run_all_drawings.py
-```
-
-Automatically generates all curve figures used in the paper and saves them to the `Draw_New` directory.
+Open [`AERO/quick-start.ipynb`](AERO/quick-start.ipynb). It computes RMSE with `compute_rmse()` from `test_film_wb.py` / `test_film_00z_RMSE.py` and writes the RMSE arrays, RMSE curves, 72 h forecasts, and snapshots to `AERO/quick-start_output/`.
 
 ## Citation
 
@@ -219,24 +265,24 @@ The corresponding paper is currently under review. The citation will be updated 
 A placeholder BibTeX entry is provided below (the journal and DOI will be added after publication):
 
 ```bibtex
-@article{aeroode2026,
-  title   = {A physics-guided integrated global to regional method for high-resolution weather forecasting},
-  author  = {Zhang, Jing and Dai, Yutong and Wang, Yu and He, Fang and Xu, Pengbo and Yin, Junping},
-  journal = {npj Climate and Atmospheric Science},
-  year    = {2026},
-  doi     = {10.1038/s41612-026-01555-w},
-  note    = {Accepted. The DOI will resolve when the article is published online.}
+@unpublished{aeroode2026,
+  title  = {A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting},
+  author = {Zhang, Jing and others},
+  year   = {2026},
+  note   = {Manuscript under review}
 }
 ```
 
+
+
 ## License
 
-Free for non-commercial use (research and education) with attribution. **Commercial use is prohibited.** Third-party components keep their own licenses (see below).
+This repository is released under the Apache License, Version 2.0. See `LICENSE`. Third-party components keep their own licenses (see below).
 
 ## Third-Party Components
 
-Modified NeuralGCM source is included under Apache-2.0. See `AERO_ODE/AERO_Surface/neuralgcm-main/LICENSE`.
+Modified NeuralGCM source is included under Apache-2.0. See `AERO/physics_core/neuralgcm-main/LICENSE`.
 
 NeuralGCM pretrained weights are under CC-BY-SA-4.0.
 
-Dinosaur — Apache-2.0.
+Dinosaur — Apache-2.0. See `AERO/physics_core/dinosaur-main/dinosaur-main/LICENSE`.
