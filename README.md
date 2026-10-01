@@ -255,7 +255,7 @@ A placeholder BibTeX entry is provided below (the journal and DOI will be added 
 ```bibtex
 @article{aeroode2026,
   title   = {A physics-guided integrated global to regional method for high-resolution weather forecasting},
-  author  = {Zhang, Jing and Dai, Yutong and Wang, Yu and He, Fang and Xu, Pengbo and Yin, Junping},
+  author  = {Zhang, Jing and others},
   journal = {npj Climate and Atmospheric Science},
   year    = {2026},
   doi     = {10.1038/s41612-026-01555-w},
