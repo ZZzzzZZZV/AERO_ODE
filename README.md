@@ -158,6 +158,7 @@ The Hugging Face archives are already preprocessed and ready to use. To extend t
 
 Then use the code in `AERO_ODE/script/Code_for_processing_data` to regrid ERA5 onto a 1.4° Gaussian grid and fill it. Edit the path constants at the top of each script before running.
 
+The ERA5 data used in the paper are at 1.0° resolution and were processed to 1.4° with this code. When processing your own data, first compare a short period (for example, one month) field by field against the public AERO-ODE data. Confirm that the grid, variables, gap filling, and time alignment all match and that the processing is correct before extending the calculation to a full year or other months, so that inconsistent data does not reduce forecast skill.
 
 
 ## Weights Preparation
