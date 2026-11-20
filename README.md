@@ -266,7 +266,7 @@ Open [`AERO_ODE/quick-start.ipynb`](AERO_ODE/quick-start.ipynb). It computes RMS
 
 ## Citation
 
-A placeholder BibTeX entry is provided below (the journal and DOI will be added after publication):
+A placeholder BibTeX entry is provided below
 
 ```bibtex
 @article{aeroode2026,
