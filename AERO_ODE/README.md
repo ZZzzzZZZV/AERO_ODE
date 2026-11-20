@@ -248,16 +248,16 @@ Open [`quick-start.ipynb`](quick-start.ipynb). It computes RMSE with `compute_rm
 
 ## Citation
 
-The corresponding paper is currently under review. The citation will be updated once it is formally published.
-
-A placeholder BibTeX entry is provided below (the journal and DOI will be added after publication):
+If you use this repository, please cite:
 
 ```bibtex
-@unpublished{aeroode2026,
-  title  = {A Physics Guided Integrated Global to Regional Method for High Resolution Weather Forecasting},
-  author = {Zhang, Jing and others},
-  year   = {2026},
-  note   = {Manuscript under review}
+@article{Zhang2026AERO,
+  author  = {Zhang, Jing and others},
+  title   = {A physics-guided integrated global to regional method for high-resolution weather forecasting},
+  journal = {npj Climate and Atmospheric Science},
+  year    = {2026},
+  doi     = {10.1038/s41612-026-01555-w},
+  url     = {https://doi.org/10.1038/s41612-026-01555-w}
 }
 ```
 
