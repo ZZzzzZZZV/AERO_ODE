@@ -12,15 +12,6 @@
 
 This repository releases the **western-region** models (pressure levels 300 / 500 / 700 / 850 / 925 hPa). The corresponding code is in [`AERO_ODE/`](AERO_ODE/).
 
-## Model Architecture
-
-**AERO-AIR: pressure-level variable prediction framework**
-
-![AERO-AIR pressure-level variable prediction framework](AERO_ODE/assets/AERO_ODE_AIR.png)
-
-**AERO-Surface: surface-variable prediction framework**
-
-![AERO-Surface surface-variable prediction framework](AERO_ODE/assets/AERO_ODE_Surface.png)
 
 ## Quick Start
 
