@@ -133,22 +133,39 @@ Case data for the current western-region models (300 / 500 / 700 / 850 / 925 hPa
 
 [ZhangJing1106170090/AERO_ODE_Case_Data](https://huggingface.co/datasets/ZhangJing1106170090/AERO_ODE_Case_Data)
 
-Download and unzip into the `AERO_ODE/` directory. Keep the extracted folder names unchanged.
+Two full-month western-region cases are provided. Both are downloaded from the same Hugging Face dataset:
+
+- [`data.zip`](https://huggingface.co/datasets/ZhangJing1106170090/AERO_ODE_Case_Data/blob/main/data.zip): one month from the paper’s test set
+- [`Data_2026_10.zip`](https://huggingface.co/datasets/ZhangJing1106170090/AERO_ODE_Case_Data/blob/main/Data_2026_10.zip): one month after the paper, code, and weights were released
+
+The model was trained only on 2021–2023. October 2026 uses the paper-release checkpoints without modification, and RMSE remains competitive with WRF-ARW.
+
+Download and unzip into this repository root. Keep the extracted folder names unchanged.
 
 ```bash
 pip install -U huggingface_hub
 huggingface-cli download ZhangJing1106170090/AERO_ODE_Case_Data \
   data.zip \
-  --repo-type dataset --local-dir AERO_ODE
-unzip AERO_ODE/data.zip -d AERO_ODE
+  --repo-type dataset --local-dir .
+unzip data.zip
 ```
 
-This repository expects preprocessed data under `AERO_ODE/data/`:
+```bash
+huggingface-cli download ZhangJing1106170090/AERO_ODE_Case_Data \
+  Data_2026_10.zip \
+  --repo-type dataset --local-dir .
+unzip Data_2026_10.zip
+ln -sfn Data_2026_10/Data data
+```
+
+For `Data_2026_10.zip`, set `DEMO_YEAR = 2026`, `DEMO_MONTH = 10`, `DEMO_DAY = 1` in `paths_config.py`.
+
+This repository expects preprocessed data under `data/`:
 
 ```text
-AERO_ODE/data/era5_test/YYYY/MM/DD/YYYYMMDD.nc
-AERO_ODE/data/hrrr_test/MM/DD.h5
-AERO_ODE/data/hrrr_stat/mean_39.npy
+data/era5_test/YYYY/MM/DD/YYYYMMDD.nc
+data/hrrr_test/MM/DD.h5
+data/hrrr_stat/mean_39.npy
 ```
 
 The Hugging Face archives are already preprocessed and ready to use. To extend them with your own raw data, download from the official sources below:
@@ -156,7 +173,7 @@ The Hugging Face archives are already preprocessed and ready to use. To extend t
 - HRRR: [https://rapidrefresh.noaa.gov/hrrr/](https://rapidrefresh.noaa.gov/hrrr/)
 - ERA5: [https://cds.climate.copernicus.eu/](https://cds.climate.copernicus.eu/)
 
-Then use the code in `AERO_ODE/script/Code_for_processing_data` to regrid ERA5 onto a 1.4° Gaussian grid and fill it. Edit the path constants at the top of each script before running.
+Then use the code in `script/Code_for_processing_data` to regrid ERA5 onto a 1.4° Gaussian grid and fill it. Edit the path constants at the top of each script before running.
 
 The ERA5 data used in the paper are at 1.0° resolution and were processed to 1.4° with this code. When processing your own data, first compare a short period (for example, one month) field by field against the public AERO-ODE data. Confirm that the grid, variables, gap filling, and time alignment all match and that the processing is correct before extending the calculation to a full year or other months, so that inconsistent data does not reduce forecast skill.
 
